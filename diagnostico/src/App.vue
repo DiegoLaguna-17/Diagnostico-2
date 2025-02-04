@@ -1,20 +1,41 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+import Inicio from './views/Inicio.vue';
+import HelloWorld from './views/Inicio.vue'
 </script>
 
 <template>
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
-</template>
 
+  <div id="app">
+    <Navbar  />
+    <router-view />
+    
+  </div>
+ 
+</template>
+<script>
+import { computed } from 'vue';
+import { useRoute } from 'vue-router';
+import Navbar from './components/Navbar.vue';
+export default {
+  name: 'App',
+  components: {
+    Navbar,
+  },
+  setup() {
+    const route = useRoute();
+    // Mostrar Navbar y Footer en todas las rutas excepto en /admin
+    const show = computed(() => route.path !== '/admin');
+
+    return {
+      show,
+    };
+  },
+};
+</script>
 <style scoped>
+.app{
+  width: 100%;
+}
 .logo {
   height: 6em;
   padding: 1.5em;
