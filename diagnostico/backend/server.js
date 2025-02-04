@@ -34,11 +34,12 @@ app.post('/inscribir', async (req, res) => {
       );
   
       // Si la inserción fue exitosa, devuelve una respuesta exitosa
-      res.status(200);
-      res.send("Inscripcion correcta");
+      res.status(200).send("Inscripcion correcta");
       console.log('inscripcion exitosa');
+      
     } catch (error) {
       console.error('Error al insertar los datos:', error);
+      console.error('Stack Trace:', error.stack);
       // Si hay error, enviar un código 500 (error interno del servidor)
       res.status(500).send('Error al procesar la solicitud');
     }

@@ -61,17 +61,31 @@
     const response = await axios.post('http://localhost:3000/inscribir', this.form);
     console.log(response.data); // Imprime la respuesta del servidor
     // Verifica que la respuesta sea "Inscripción exitosa"
+    console.log(response.status);
     if (response.status === 200 && response.data=='Inscripcion correcta') {
       alert('Inscripción exitosa');
+      
     } else {
       // Si la respuesta no es la esperada, muestra un mensaje de error
       alert('Error al inscribir.');
     }
   } catch (error) {
-    // Si ocurre un error, imprime y maneja el error de forma adecuada
-    console.error('Error al procesar la solicitud:', error.response ? error.response.data : error);
-    alert('Error al procesar la solicitud. Intenta nuevamente.');
+  // Verifica si hay una respuesta del servidor
+  if (error.response) {
+    console.error('Error del servidor:', error.response.data);
+    console.error('Código de estado:', error.response.status);
+  } else if (error.request) {
+    // Si no hubo respuesta, es un problema de red
+    console.error('No se recibió respuesta del servidor:', error.request);
+  } else {
+    // Error relacionado con la configuración de la solicitud
+    console.error('Error en la configuración de la solicitud:', error.message);
+   
   }
+  console.log(response.data);
+  alert('Error al procesar la solicitud. Intenta nuevamente.');
+}
+
 }
 
 }
