@@ -110,21 +110,20 @@ const count = ref(0)
 </template>
 
 <style scoped>
-
-h1,h2,p{
+h1, h2, p {
   font-family: Arial, Helvetica, sans-serif;
-  
 }
-h2{
-  color:#0c71c5;
+
+h2 {
+  color: #0c71c5;
 }
+
 .inicio-container {
   position: relative;
   width: 100%;
-  height: 400px;
+  height: 300px; 
   overflow: hidden;
 }
-
 
 .image-overlay {
   background-image: url('./Imagenes/banner2.webp');
@@ -132,28 +131,27 @@ h2{
   background-position: center;
   width: 100%;
   height: 100%;
-  
+  position: relative;
 }
 
-
-.image-overlay::before{
+.image-overlay::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.2); /* Ajusta el último valor (0.5) para cambiar la opacidad */
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .overlay-text {
   position: absolute;
   top: 50%;
-  left: 50px;
-  transform: translateY(-50%);
-  text-align: left;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
   color: white;
-  
+  padding: 10px;
 }
 
 .cards-container {
@@ -162,7 +160,6 @@ h2{
   flex-wrap: wrap;
   margin: 30px 0;
   gap: 20px;
-  height: 600px;
 }
 
 .card-wrapper {
@@ -177,7 +174,6 @@ h2{
   align-items: center;
   margin-bottom: 10px;
 }
-
 
 .bar {
   width: 5px;
@@ -209,4 +205,35 @@ h2{
   font-size: 14px;
 }
 
+/* Responsivo */
+@media (max-width: 968px) {
+  .inicio-container {
+    height: 200px;
+  }
+
+  .overlay-text {
+    font-size: 1rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .cards-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .card-wrapper {
+    max-width: 100%;
+  }
+
+  .card-content p {
+    font-size: 16px;
+  }
+
+  img {
+    height: auto;
+    max-width: 100%;
+  }
+}
 </style>
+
