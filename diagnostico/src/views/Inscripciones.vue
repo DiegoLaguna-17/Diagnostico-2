@@ -118,6 +118,7 @@
   
   label {
     font-weight: bold;
+    font-family: 'Arial', 'Helvetica', sans-serif;
   }
   
   input, select {
@@ -128,7 +129,7 @@
   }
   
   button {
-    background-color: #4CAF50;
+    background-color: #1337ec;
     color: white;
     padding: 10px;
     border: none;
@@ -137,7 +138,7 @@
   }
   
   button:hover {
-    background-color: #45a049;
+    background-color: #021780;
   }
   </style>
   
