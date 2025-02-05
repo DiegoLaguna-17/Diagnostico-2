@@ -22,6 +22,25 @@
   </nav>
 </template>
 
+<!-- Lógica del menú hamburguesa -->
+<script>
+export default {
+  data() {
+    return {
+      isMenuOpen: false
+    };
+  },
+  methods: {
+    toggleMenu() {
+      this.isMenuOpen = !this.isMenuOpen;
+    },
+    closeMenu() {
+      this.isMenuOpen = false;
+    }
+  }
+};
+</script>
+
 <style>
 .navbar {
     width: 100%;
